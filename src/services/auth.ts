@@ -1,8 +1,7 @@
-import nookies from "nookies";
+import { cookies } from "../utils/cookies";
 
 export const auth = (context: any): any => {
-    const token = nookies.get(context).tokenDespesas;
-    const tokenExpiryTime = nookies.get(context).tokenExpiryTimeDespesas;
+    const { token, tokenExpiryTime } = cookies.getAuthCookies(context);
     const redirect = {
         redirect: {
             destination: '/',
@@ -10,11 +9,9 @@ export const auth = (context: any): any => {
         }
     }
     const authentification = () => {
-        nookies.destroy(context,"tokenDespesas");
-        nookies.destroy(context, "tokenExpiryTimeDespesas");
+        cookies.removeAuthCookies(context);
         return redirect;
     }
 
-    if(!token || Date.now() > parseInt(tokenExpiryTime))
-        return authentification();
+    if(!token || Date.now() > parseInt(tokenExpiryTime)) return authentification();
 }
