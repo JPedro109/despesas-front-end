@@ -42,7 +42,7 @@ const ConfigUser = () => {
       })
       .then(() => {
         setFormValues({});
-        notification.success("E-mail cadastrado com sucesso");
+        notification.success("O link de atualização de email foi enviado para seu email, ele é válido por alguns minutos, não esqueça de verificar sua caixa de spam");
       })
       .catch(({ response }) =>
         response
