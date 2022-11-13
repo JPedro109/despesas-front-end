@@ -4,7 +4,7 @@
 <p>🚀  Aplicação voltada para administração de despesas</p>
 
 # Status da Aplicação
-<p>🚧 Aplicação Em Desevolvimento</p>
+<p>🔥 Aplicação Finalizada</p>
 
 # Features
 - Cadastro de Usuário
@@ -20,3 +20,16 @@
 # Tecnologias
 - Next
 - Typescript
+
+# Execução
+
+Para executar o projeto você deve ter o node e o pacote yarn instalados, após clonar o projeto, use o exemplo para definir as variáveis de ambiente e digite os seguintes comandos:
+
+```sh
+ yarn
+```
+Depois para rodar o projeto: 
+
+```sh
+ yarn dev
+```
