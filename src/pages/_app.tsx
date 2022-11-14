@@ -19,7 +19,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
               <meta charSet="utf-8" />
               <meta name="viewport" content="initial-scale=1.0, width=device-width" />
               <link rel="icon" href="icon/icon.svg" />
-              <title>Minhas Despesas</title>
+              <title>Despesas</title>
             </Head>
             <NextNProgress
               color="#FFDF00"
