@@ -16,7 +16,7 @@ export const ContainerAside = styled.aside<ContainerAsideTypes>`
 
     @media (max-width: 786px) {
         width: 100%;
-        positionLeft: ${({ positionLeft }) => `${positionLeft}`};
+        left: ${({ positionLeft }) => `${positionLeft}`};
         transition: all 0.7s;
     }
 
