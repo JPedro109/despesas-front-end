@@ -81,7 +81,7 @@ const ConfigUser = () => {
       })
       .then(() => {
         setFormValues({});
-        notification.error("Senha atualizada com sucesso");
+        notification.success("Senha atualizada com sucesso");
       })
       .catch(({ response }) =>
         response
@@ -116,7 +116,7 @@ const ConfigUser = () => {
       .then(() => {
         setFormValues({});
         handleLogout();
-        notification.error("Usuário deletado com sucesso");
+        notification.success("Usuário deletado com sucesso");
       })
       .catch(({ response }) =>
         response
