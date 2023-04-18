@@ -15,7 +15,7 @@ const VerifyEmailUpdate = () => {
       if(calledPush) {
         const handleVerifyEmailUpdate = async () => {
           await api.client
-            .patch(`/update-email?${query}`)
+            .patch(`/users/email?${query}`)
             .then(({ data }) => notification.success("E-mail atualizado com sucesso"))
             .catch(({ response }) =>
               response

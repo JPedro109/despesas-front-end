@@ -2,7 +2,7 @@ export type ExpenseDTO = {
     id: string;
     expenseName: string;
     dueDate: string;
-    price: number;
+    expenseValue: number;
 }
 
 export type ListExpensesDTO = {

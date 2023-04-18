@@ -34,13 +34,14 @@ const UpdateExpense = () => {
     setButtonChildren(<LoadingGif />);
 
     await api.client
-      .put(`/expenses/update/${id}`, {
+      .put(`/expenses/${id}`, {
         expenseName: expenseName.value,
+        expenseValue: parseInt(price.value),
         dueDate: dueDate.value,
-        price: parseInt(price.value),
       })
       .then(() => {
         setFormValues({});
+        router.push("/expenses");
         notification.success("Despesa atualizada com sucesso");
       })
       .catch(({ response }) =>
@@ -49,9 +50,7 @@ const UpdateExpense = () => {
           : notification.error("Erro no Servidor")
       );
 
-    setButtonChildren("Atualizar Despesa");
-    router.push("/expenses");
-
+      setButtonChildren("Atualizar Despesa");
   };
 
   return (

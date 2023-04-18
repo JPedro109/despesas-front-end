@@ -32,7 +32,7 @@ const RecoverPassword = () => {
     setButtonChildren(<LoadingGif />);
 
     await api.client
-      .patch(`/user/password/password-recover?${query}`, {
+      .patch(`/users/password-recover?${query}`, {
         password: password.value,
         passwordConfirm: passwordConfirm.value,
       })

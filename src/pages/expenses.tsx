@@ -18,7 +18,7 @@ const Expenses = ({ expenses }: ListExpensesDTO) => {
 
     const handleExpenseDeletion = async (expenseId: string) => {
       await api.client
-        .delete(`/expenses/delete/${expenseId}`)
+        .delete(`/expenses/${expenseId}`)
         .catch(({ response }) =>
           response
             ? notification.error(response.data.message)
@@ -52,9 +52,9 @@ const Expenses = ({ expenses }: ListExpensesDTO) => {
                         <tr key={expense.id}>
                           <td>{expense.expenseName}</td>
                           <td>{new Date(expense.dueDate).toLocaleDateString('pt-BR', { timeZone: 'UTC' })}</td>
-                          <td>{`R$ ${expense.price}`}</td>
+                          <td>{`R$ ${expense.expenseValue}`}</td>
                           <td>
-                            <UpdateButton onClick={() => handleUpdateExpense(expense.id, expense.expenseName, expense.dueDate, expense.price)}>
+                            <UpdateButton onClick={() => handleUpdateExpense(expense.id, expense.expenseName, expense.dueDate, expense.expenseValue)}>
                               Atualizar
                             </UpdateButton>
                           </td>
@@ -77,7 +77,7 @@ export const getServerSideProps = async (context: any) => {
                   .get("/expenses")
                   .then(({ data }) => data)
 
-  const expenses = await fetch.response;
+  const expenses = await fetch;
 
   return {
         props: {
