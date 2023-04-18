@@ -29,7 +29,7 @@ const RegisterExpense = () => {
       .post("/expenses", {
         expenseName: expenseName.value,
         dueDate: dueDate.value,
-        price: parseInt(price.value),
+        expenseValue: parseInt(price.value),
       })
       .then(() => {
         setFormValues({});

@@ -34,7 +34,7 @@ export const useAuth = () => {
     setButtonChildren(<LoadingGif />);
 
     await api.client
-      .post("/user/login", {
+      .post("/users/login", {
         email: email.value,
         password: password.value,
       })
@@ -42,9 +42,9 @@ export const useAuth = () => {
         setFormValues({});
         setAuthenticated(true);
         setButtonChildren("Login");
-
-        api.addTokenInAuthorizationHeader(data.response.accessToken);
-        cookies.addAuthCookies(data.response.accessToken);
+        
+        api.addTokenInAuthorizationHeader(data);
+        cookies.addAuthCookies(data);
 
         router.push("/home");
       })

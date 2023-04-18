@@ -37,7 +37,7 @@ const ConfigUser = () => {
     setButtonChildrenEmail(<LoadingGif />);
 
     await api.client
-      .post("/user/email/send-token-update-email", {
+      .patch("/users/send-email-update-link", {
         email: email.value,
       })
       .then(() => {
@@ -46,7 +46,7 @@ const ConfigUser = () => {
       })
       .catch(({ response }) =>
         response
-          ? notification.error(response.data.message)
+          ? notification.error(response.data.message[0])
           : notification.error("Erro no Servidor")
       );
 
@@ -74,10 +74,10 @@ const ConfigUser = () => {
     setButtonChildrenPassword(<LoadingGif />);
 
     await api.client
-      .patch(`/user/password/update`, {
-        passwordCurrent: passwordCurrent.value,
-        password: newPassword.value,
-        passwordConfirm: newPasswordConfirm.value,
+      .patch(`/users/password`, {
+        password: passwordCurrent.value,
+        newPassword: newPassword.value,
+        newPasswordConfirm: newPasswordConfirm.value,
       })
       .then(() => {
         setFormValues({});
@@ -107,7 +107,7 @@ const ConfigUser = () => {
     setButtonChildrenDelete(<LoadingGif />);
 
     await api.client
-      .delete(`/user/delete`, {
+      .delete(`/users`, {
         data: {
           password: password.value,
           passwordConfirm: passwordConfirm.value,

@@ -9,14 +9,15 @@ import { InformationContainer } from '../styles/pages/home';
 
 import { auth } from "../services/auth";
 import { api } from '../services/api';
+import { ExpenseDTO } from '../types';
 
 const Home = ({ expenses }: any) => {
 
     const handleTotalPrice = () => {
         let price = 0;
 
-        expenses.map((expense: any) => ( 
-              price += expense.price
+        expenses.map((expense: ExpenseDTO) => ( 
+              price += expense.expenseValue
         ));
 
         return price;
@@ -63,7 +64,7 @@ export const getServerSideProps = async (context: any) => {
                     .get("/expenses")
                     .then(({ data }) => data);
 
-    const data = await fetch.response;
+    const data = await fetch;
 
     return {
             props: {

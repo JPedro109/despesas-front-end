@@ -31,7 +31,7 @@ const ForgetPassword = () => {
     setButtonChildren(<LoadingGif />);
 
     await api.client
-      .post("/user/password/send-token-password-recover", {
+      .patch("/users/send-password-recovery-link", {
         email: email.value,
       })
       .then(() => {

@@ -35,7 +35,7 @@ const Register = () => {
     setButtonChildren(<LoadingGif />);
 
     await api.client
-      .post("/user/create", {
+      .post("/users", {
         email: email.value,
         password: password.value,
         passwordConfirm: passwordConfirm.value,
